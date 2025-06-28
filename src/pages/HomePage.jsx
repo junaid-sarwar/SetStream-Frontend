@@ -14,6 +14,7 @@ import {
   MapPin,
   Send,
 } from "lucide-react"
+import axios from "axios"
 import { Button } from "../components/ui/button"
 import { Card, CardContent } from "../components/ui/card"
 import { useState } from "react"
@@ -41,13 +42,20 @@ export default function HomePage() {
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    setIsSubmitting(false)
+  e.preventDefault()
+  setIsSubmitting(true)
+
+  try {
+    await axios.post("http://localhost:8080/api/contact", formData)
+    alert("Message sent successfully!")
     setFormData({ name: "", email: "", phone: "", company: "", message: "" })
+  } catch (error) {
+    console.error("Error sending contact form:", error)
+    alert("Failed to send message. Please try again.")
+  } finally {
+    setIsSubmitting(false)
   }
+}
 
   return (
     <div className="min-h-screen">
@@ -56,7 +64,7 @@ export default function HomePage() {
       <HeroSection/>
 
        {/* Marquee Section - Added here */}
-      {/* <Marquee /> */}
+      <Marquee />
 
       {/* Features Section */}
       <section className="py-24 bg-gradient-to-b from-white to-slate-50">
