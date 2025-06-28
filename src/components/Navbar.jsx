@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Link, useLocation } from "react-router-dom"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import SetClaimsLogo1 from '../assets/logo/setClaimsLogo.png'
-import SetClaimsLogo2 from '../assets/logo/setClaimsLogo-White2.png'
+import SetClaimsLogo1 from '@/assets/logo/setClaimsLogo.png'
+import SetClaimsLogo2 from '@/assets/logo/setClaimsLogo-White2.png'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
