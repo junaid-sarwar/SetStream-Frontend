@@ -14,7 +14,7 @@ import {
     Shield,
     BarChart3,
 } from "lucide-react"
-import SetClaimsLogo from '../assets/logo/setClaimsLogo.png'
+import SetClaimsLogo from '@/assets/logo/setClaimsLogo.png'
 
 export default function Footer() {
     const currentYear = new Date().getFullYear()
