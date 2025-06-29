@@ -353,19 +353,19 @@ export default function HomePage() {
               {
                 icon: <Phone className="w-6 h-6" />,
                 title: "Call Us",
-                content: "+1 (555) 123-4567",
+                content: "+1 413 321 3900",
                 subtitle: "Mon-Fri 9AM-6PM EST",
               },
               {
                 icon: <Mail className="w-6 h-6" />,
                 title: "Email Us",
-                content: "info@setclaimstech.com",
+                content: "setclaimstechnologies@gmail.com",
                 subtitle: "We'll respond within 24 hours",
               },
               {
                 icon: <MapPin className="w-6 h-6" />,
                 title: "Visit Us",
-                content: "New York, NY",
+                content: "109 Grape st Chicopee MA 01013",
                 subtitle: "Our headquarters",
               },
             ].map((contact, index) => (
