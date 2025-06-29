@@ -46,7 +46,7 @@ export default function HomePage() {
   setIsSubmitting(true)
 
   try {
-    await axios.post("http://localhost:8080/api/contact", formData)
+    await axios.post("https://setstream-backend.onrender.com/api/contact", formData)
     alert("Message sent successfully!")
     setFormData({ name: "", email: "", phone: "", company: "", message: "" })
   } catch (error) {
