@@ -35,13 +35,6 @@ export default function Footer() {
         { name: "Contact Us", href: "/contact" },
     ]
 
-    const resources = [
-        { name: "Blog", href: "/blog" },
-        { name: "Case Studies", href: "/case-studies" },
-        { name: "Documentation", href: "/docs" },
-        { name: "Support", href: "/support" },
-    ]
-
     const socialLinks = [
         { name: "LinkedIn", icon: <Linkedin className="w-5 h-5" />, href: "#" },
         { name: "Twitter", icon: <Twitter className="w-5 h-5" />, href: "#" },
@@ -104,15 +97,15 @@ export default function Footer() {
                                 <div className="space-y-3">
                                     <div className="flex items-center space-x-3 text-slate-300">
                                         <Mail className="w-5 h-5 text-blue-400" />
-                                        <span>info@setclaimstech.com</span>
+                                        <span><a href="mailto:setclaimstechnologies@gmail.com">setclaimstechnologies@gmail.com</a></span>
                                     </div>
                                     <div className="flex items-center space-x-3 text-slate-300">
                                         <Phone className="w-5 h-5 text-blue-400" />
-                                        <span>+1 (555) 123-4567</span>
+                                        <span><a href="tel:+1 413 321 3900">+1 413 321 3900</a></span>
                                     </div>
                                     <div className="flex items-center space-x-3 text-slate-300">
                                         <MapPin className="w-5 h-5 text-blue-400" />
-                                        <span>New York, NY</span>
+                                        <span>109 Grape st Chicopee MA 01013</span>
                                     </div>
                                 </div>
 
@@ -188,13 +181,13 @@ export default function Footer() {
                             © {currentYear} SetClaims Technologies SMC-Private Limited. All rights reserved.
                         </div>
                         <div className="flex space-x-6 text-sm text-slate-400">
-                            <Link to="/privacy" className="hover:text-white transition-colors">
+                            <Link to="#" className="hover:text-white transition-colors">
                                 Privacy Policy
                             </Link>
-                            <Link to="/terms" className="hover:text-white transition-colors">
+                            <Link to="#" className="hover:text-white transition-colors">
                                 Terms of Service
                             </Link>
-                            <Link to="/cookies" className="hover:text-white transition-colors">
+                            <Link to="#" className="hover:text-white transition-colors">
                                 Cookie Policy
                             </Link>
                         </div>

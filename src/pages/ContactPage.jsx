@@ -63,21 +63,21 @@ export default function ContactPage() {
     {
       icon: <Phone className="w-8 h-8" />,
       title: "Call Us",
-      content: "+1 (555) 123-4567",
+      content: "+1 413 321 3900",
       subtitle: "Mon-Fri 9AM-6PM EST",
       gradient: "from-blue-500 to-cyan-500",
     },
     {
       icon: <Mail className="w-8 h-8" />,
       title: "Email Us",
-      content: "info@setclaimstech.com",
+      content: "setclaimstechnologies@gmail.com",
       subtitle: "We'll respond within 24 hours",
       gradient: "from-purple-500 to-indigo-500",
     },
     {
       icon: <MapPin className="w-8 h-8" />,
       title: "Visit Us",
-      content: "New York, NY",
+      content: "109 Grape st Chicopee MA 01013",
       subtitle: "Our headquarters",
       gradient: "from-green-500 to-emerald-500",
     },
@@ -440,6 +440,7 @@ export default function ContactPage() {
             </h2>
             <p className="text-xl text-slate-600">Choose the method that works best for you</p>
           </motion.div>
+
 
           <div className="grid md:grid-cols-3 gap-8">
             {contactMethods.map((method, index) => (

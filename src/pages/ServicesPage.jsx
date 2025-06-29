@@ -372,14 +372,6 @@ export default function ServicesPage() {
                   </Button>
                 </Link>
               </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button
-                  variant="outline"
-                  className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg font-semibold rounded-full bg-transparent"
-                >
-                  View Case Studies
-                </Button>
-              </motion.div>
             </div>
           </motion.div>
         </div>

@@ -1,5 +1,3 @@
-"use client"
-
 import { MessageCircle } from "lucide-react"
 import { motion } from "framer-motion"
 
@@ -26,7 +24,7 @@ export default function WhatsAppButton() {
 
         {/* Button */}
         <motion.a
-          href="https://wa.me/15551234567"
+          href="https://wa.me/14133213900"
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ scale: 1.1 }}
