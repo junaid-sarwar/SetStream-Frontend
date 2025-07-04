@@ -1,173 +1,228 @@
+"use client"
+
 import { motion } from "framer-motion"
-import { Brain, Shield, BarChart3, Users, Clock, CheckCircle, ArrowRight, TrendingUp, Sparkles } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import {
+  UserCheck,
+  FileText,
+  Shield,
+  TrendingUp,
+  CreditCard,
+  BarChart3,
+  Headphones,
+  CheckCircle,
+  ArrowRight,
+  Sparkles,
+} from "lucide-react"
+import { Card, CardContent } from "../components/ui/card"
+import { Button } from "../components/ui/button"
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 import WhatsAppButton from "../components/WhatsAppButton"
-import ScrollToHashElement from "../components/ScrollToHash"
 import { useLocation } from "react-router-dom"
 
-
 export default function ServicesPage() {
-  const location = useLocation();
+  const location = useLocation()
   const [activeService, setActiveService] = useState(0)
 
   useEffect(() => {
-  if (location.hash) {
-    const anchor = location.hash.replace("#", "");
-    const index = services.findIndex(service => service.anchor === anchor);
-    if (index !== -1) {
-      setActiveService(index);
+    if (location.hash) {
+      const anchor = location.hash.replace("#", "")
+      const index = services.findIndex((service) => service.anchor === anchor)
+      if (index !== -1) {
+        setActiveService(index)
+        // Scroll to the service section
+        setTimeout(() => {
+          const element = document.getElementById(anchor)
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "center" })
+          }
+        }, 100)
+      }
     }
-  }
-}, [location.hash]);
+  }, [location.hash])
 
   const services = [
     {
       id: 0,
-      anchor: "ai-processing",
-      icon: <Brain className="w-12 h-12" />,
-      title: "AI-Powered Claims Processing",
+      anchor: "credentialing",
+      icon: <UserCheck className="w-12 h-12" />,
+      title: "Credentialing & Enrollment",
       description:
-        "Revolutionary artificial intelligence that processes claims with 99.8% accuracy and lightning speed.",
+        "Credentialing with different health plans is the basic step for starting any healthcare facility. Get yourself credentialed & enrolled with different health plans efficiently.",
       features: [
-        "Advanced machine learning algorithms",
-        "Real-time claim validation",
-        "Automated error detection and correction",
-        "Intelligent denial prevention",
-        "Seamless integration with existing systems",
+        "Provider Credentialing",
+        "Enrollment with Govt. and commercial payers",
+        "NPI Registration (Both Type 1 & 2)",
+        "CAQH update",
+        "Document Management",
+        "Revalidation & Re-credentialing",
+        "Fee schedule negotiations",
+        "EDI Management (ERA/EFT Setup)",
       ],
-      benefits: [
-        "99.8% claim accuracy rate",
-        "90% faster processing time",
-        "60% reduction in denials",
-        "24/7 automated processing",
-      ],
+      benefits: ["90% faster credentialing", "100% compliance rate", "Streamlined enrollment", "Expert documentation"],
       gradient: "from-blue-500 to-cyan-500",
       bgGradient: "from-blue-50 to-cyan-50",
     },
     {
       id: 1,
-      anchor: "revenue",
-      icon: <TrendingUp className="w-12 h-12" />,
-      title: "Revenue Cycle Optimization",
-      description: "Maximize your revenue potential with intelligent optimization strategies and predictive analytics.",
+      anchor: "coding-billing",
+      icon: <FileText className="w-12 h-12" />,
+      title: "Medical Coding & Billing",
+      description:
+        "Medical coding is the key stone in medical billing industry. All your revenue depends on proper coding. Claims with incorrect coding cause denials/rejections which ultimately affect your finance.",
       features: [
-        "Predictive revenue analytics",
-        "Cash flow optimization",
-        "Payment posting automation",
-        "Revenue leakage identification",
-        "Performance benchmarking",
+        "ICD-10 & CPT coding expertise",
+        "Real-time claim validation",
+        "Automated error detection",
+        "Denial management & appeals",
+        "Clean claim submission",
+        "Revenue cycle optimization",
+        "Compliance monitoring",
+        "Quality assurance reviews",
       ],
-      benefits: [
-        "40% average revenue increase",
-        "50% faster payment collection",
-        "Real-time financial insights",
-        "Improved cash flow management",
-      ],
+      benefits: ["99.5% coding accuracy", "50% reduction in denials", "Faster claim processing", "Improved cash flow"],
       gradient: "from-green-500 to-emerald-500",
       bgGradient: "from-green-50 to-emerald-50",
     },
     {
       id: 2,
-      anchor: "compliance",
+      anchor: "eligibility",
       icon: <Shield className="w-12 h-12" />,
-      title: "Compliance & Security",
-      description: "Comprehensive compliance management ensuring HIPAA adherence and regulatory requirements.",
+      title: "Eligibility & Benefits Verification",
+      description:
+        "Verification of eligibility and benefits of patients at the time of services plays most important role in your revenue. Referrals & prior auth requirements can only be verified by checking the benefit details.",
       features: [
-        "HIPAA compliance monitoring",
-        "Automated audit trails",
-        "Risk assessment tools",
-        "Regulatory change alerts",
-        "Security breach prevention",
+        "Real-time eligibility verification",
+        "Benefits coverage analysis",
+        "Prior authorization management",
+        "Referral verification",
+        "Co-pay and deductible tracking",
+        "Insurance plan validation",
+        "Patient responsibility calculation",
+        "Automated verification workflows",
       ],
       benefits: [
-        "100% HIPAA compliance",
-        "Zero security breaches",
-        "Automated compliance reporting",
-        "Proactive risk mitigation",
+        "95% verification accuracy",
+        "Reduced claim denials",
+        "Improved patient satisfaction",
+        "Streamlined workflows",
       ],
       gradient: "from-purple-500 to-indigo-500",
       bgGradient: "from-purple-50 to-indigo-50",
     },
     {
       id: 3,
-      anchor: "analytics",
-      icon: <BarChart3 className="w-12 h-12" />,
-      title: "Advanced Analytics",
-      description: "Comprehensive business intelligence with real-time dashboards and predictive insights.",
+      anchor: "ar-recovery",
+      icon: <TrendingUp className="w-12 h-12" />,
+      title: "AR & Aging Recovery",
+      description:
+        "Our team of experts specializes in recovering old AR. We have been serving the industry for decades. Failure to reimburse your work means no revenue for us.",
       features: [
-        "Real-time performance dashboards",
-        "Predictive analytics engine",
-        "Custom report generation",
-        "KPI tracking and monitoring",
-        "Trend analysis and forecasting",
+        "Aged AR analysis and prioritization",
+        "Systematic follow-up processes",
+        "Denial appeals and resubmissions",
+        "Payment posting and reconciliation",
+        "Insurance correspondence management",
+        "Patient collection strategies",
+        "Bad debt recovery solutions",
+        "Performance tracking and reporting",
       ],
       benefits: [
-        "360° business visibility",
-        "Data-driven decision making",
-        "Predictive insights",
-        "Custom reporting capabilities",
+        "40% improvement in collections",
+        "Reduced AR aging",
+        "Expert appeal management",
+        "Maximized revenue recovery",
       ],
       gradient: "from-orange-500 to-red-500",
       bgGradient: "from-orange-50 to-red-50",
     },
     {
       id: 4,
-      anchor: "network",
-      icon: <Users className="w-12 h-12" />,
-      title: "Provider Network Management",
-      description: "Streamlined provider credentialing, contract management, and network optimization.",
+      anchor: "payment-posting",
+      icon: <CreditCard className="w-12 h-12" />,
+      title: "Payment Posting",
+      description:
+        "Payment posting provides insight into a practice's daily revenue stream and shouldn't be ignored. It includes noting adjustments, write-offs and deciding whether to pursue payment on denied or rejected claims.",
       features: [
-        "Automated credentialing process",
-        "Contract lifecycle management",
-        "Provider performance tracking",
-        "Network optimization tools",
-        "Quality assurance monitoring",
+        "Electronic payment posting",
+        "Manual payment entry",
+        "Adjustment and write-off tracking",
+        "Denial code analysis",
+        "Revenue reconciliation",
+        "Daily deposit management",
+        "Insurance payment verification",
+        "Patient payment processing",
       ],
       benefits: [
-        "90% faster credentialing",
-        "Improved provider satisfaction",
-        "Optimized network performance",
-        "Reduced administrative burden",
+        "99% posting accuracy",
+        "Real-time revenue tracking",
+        "Improved cash flow visibility",
+        "Reduced posting errors",
       ],
       gradient: "from-teal-500 to-cyan-500",
       bgGradient: "from-teal-50 to-cyan-50",
     },
     {
       id: 5,
-      icon: <Clock className="w-12 h-12" />,
-      anchor: "support",
-      title: "24/7 Support & Monitoring",
-      description: "Round-the-clock expert support with proactive monitoring and immediate issue resolution.",
+      anchor: "reporting",
+      icon: <BarChart3 className="w-12 h-12" />,
+      title: "Reporting & Financial Analysis",
+      description:
+        "Our financial reporting gives you the insight you need to address root causes of charge issues, resolve process inefficiencies, improve coding compliance, and ensure the integrity of all claims.",
       features: [
-        "24/7 technical support",
-        "Proactive system monitoring",
-        "Dedicated account management",
-        "Emergency response protocols",
-        "Continuous system optimization",
+        "Real-time performance dashboards",
+        "Custom report generation",
+        "KPI tracking and monitoring",
+        "Financial trend analysis",
+        "Compliance reporting",
+        "Denial pattern analysis",
+        "Revenue cycle metrics",
+        "Benchmarking and comparisons",
       ],
       benefits: [
-        "99.9% system uptime",
-        "< 2 minute response time",
-        "Proactive issue prevention",
-        "Expert technical guidance",
+        "360° business visibility",
+        "Data-driven decisions",
+        "Performance optimization",
+        "Compliance assurance",
       ],
       gradient: "from-violet-500 to-purple-500",
       bgGradient: "from-violet-50 to-purple-50",
+    },
+    {
+      id: 6,
+      anchor: "patient-support",
+      icon: <Headphones className="w-12 h-12" />,
+      title: "Patient Help Desk",
+      description:
+        "You want to provide excellent customer service. However, this can be challenging when your team is bogged down. Our team assists you with patient's billing queries so you can focus on patient care.",
+      features: [
+        "24/7 patient support hotline",
+        "Billing inquiry resolution",
+        "Payment plan setup",
+        "Insurance claim status updates",
+        "Statement explanations",
+        "Financial counseling services",
+        "Multi-language support",
+        "Patient portal assistance",
+      ],
+      benefits: [
+        "Improved patient satisfaction",
+        "Reduced staff workload",
+        "Faster query resolution",
+        "Enhanced patient experience",
+      ],
+      gradient: "from-pink-500 to-rose-500",
+      bgGradient: "from-pink-50 to-rose-50",
     },
   ]
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
-      <ScrollToHashElement/>
       <WhatsAppButton />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-purple-900 to-slate-900"></div>
-
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.div
@@ -210,7 +265,7 @@ export default function ServicesPage() {
               className="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-sm rounded-full border border-white/20"
             >
               <Sparkles className="w-5 h-5 mr-2 text-cyan-400" />
-              <span className="text-sm font-medium">COMPREHENSIVE TECHNOLOGY SOLUTIONS</span>
+              <span className="text-sm font-medium">COMPREHENSIVE MEDICAL BILLING SOLUTIONS</span>
             </motion.div>
 
             <h1 className="text-5xl md:text-7xl font-bold leading-tight">
@@ -221,7 +276,7 @@ export default function ServicesPage() {
             </h1>
 
             <p className="max-w-3xl mx-auto text-xl md:text-2xl text-slate-300 leading-relaxed">
-              Cutting-edge AI-powered solutions designed to transform your healthcare operations and maximize efficiency
+              We Offer Complete Medical Billing Services For Your Healthcare Practice
             </p>
           </motion.div>
         </div>
@@ -236,20 +291,22 @@ export default function ServicesPage() {
               {services.map((service, index) => (
                 <motion.div
                   key={service.id}
-                  id={service.anchor} // <-- This is critical
+                  id={service.anchor}
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   onClick={() => setActiveService(service.id)}
-                  className={`cursor-pointer transition-all duration-300 ${activeService === service.id ? "scale-105" : "hover:scale-102"
-                    }`}
+                  className={`cursor-pointer transition-all duration-300 ${
+                    activeService === service.id ? "scale-105" : "hover:scale-102"
+                  }`}
                 >
                   <Card
-                    className={`border-0 shadow-xl hover:shadow-2xl transition-all duration-300 ${activeService === service.id
+                    className={`border-0 shadow-xl hover:shadow-2xl transition-all duration-300 ${
+                      activeService === service.id
                         ? `bg-gradient-to-r ${service.bgGradient} ring-2 ring-blue-500`
                         : "bg-white/80 backdrop-blur-sm"
-                      }`}
+                    }`}
                   >
                     <CardContent className="p-8">
                       <div className="flex items-start space-x-4">
@@ -261,8 +318,9 @@ export default function ServicesPage() {
                           <p className="text-slate-600 leading-relaxed">{service.description}</p>
                         </div>
                         <ArrowRight
-                          className={`w-5 h-5 transition-all duration-300 ${activeService === service.id ? "text-blue-600 translate-x-1" : "text-slate-400"
-                            }`}
+                          className={`w-5 h-5 transition-all duration-300 ${
+                            activeService === service.id ? "text-blue-600 translate-x-1" : "text-slate-400"
+                          }`}
                         />
                       </div>
                     </CardContent>
@@ -296,7 +354,6 @@ export default function ServicesPage() {
                         {services[activeService].features.map((feature, index) => (
                           <motion.div
                             key={index}
-                            id={services.anchor}
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.3, delay: index * 0.1 }}
@@ -361,8 +418,8 @@ export default function ServicesPage() {
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white">Ready to Transform Your Practice?</h2>
             <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-              Schedule a free consultation and discover how our AI-powered solutions can revolutionize your healthcare
-              operations.
+              Schedule a free consultation and discover how our medical billing solutions can revolutionize your
+              healthcare operations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
